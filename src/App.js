@@ -1,17 +1,24 @@
 import './App.css';
 import Logo from './images/freecodecamp-logo.png'
 import Button from './components/Button';
+import Counter from './components/Counter';
+
+/* Hook */
+import { useState } from 'react'
 
 function App() {
+
+  // setNumClick Function
+  const [numClick, setNumClicks] = useState(0)
 
   /* Funciones: Se asigna segun event */
 
   const addClick = () => {
-    console.log('Click')
+    setNumClicks(numClick + 1)
   }
 
   const resetCounter = () => {
-    console.log('Reset')
+    setNumClicks(0)
   }
 
   return (
@@ -22,6 +29,7 @@ function App() {
         alt='freecodecamp-logo' />
       </div>
       <div className="container-main">
+       <Counter numClick={numClick} /> 
        <Button 
         title="Count"
         isClickButton={true}
